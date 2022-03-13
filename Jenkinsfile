@@ -1,8 +1,9 @@
 pipeline {
     agent any
-    environment{
+    environment {
         REGISTRY_URL = '352708296901.dkr.ecr.us-east-2.amazonaws.com'
     }
+    
     stages {
         stage('Build') {
             steps {
