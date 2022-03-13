@@ -20,7 +20,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                PYTHONPATH=. python3 -m pytest --junitxml results.xml simple_webserver/tests
+                python3 -m pytest --junitxml results.xml simple_webserver/tests
             }
         }
         stage('Deploy') {
