@@ -3,7 +3,7 @@ pipeline {
     environment {
         REGISTRY_URL = '352708296901.dkr.ecr.us-east-2.amazonaws.com'
     }
-    
+
     stages {
         stage('Build') {
             steps {
@@ -20,7 +20,6 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                junit allowEmptyResults: true, testResults: 'results.xml'*
             }
         }
         stage('Deploy') {
