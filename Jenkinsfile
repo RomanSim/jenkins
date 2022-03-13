@@ -18,10 +18,14 @@ pipeline {
             }
         }
         stage('Test') {
-            when {}
+            when { changeRequest() }
             steps {
                 echo 'Testing...'
-                python3 -m pytest simple_webserver/tests
+                sh '''
+                 pip install -r simple_webserver/requirements.txt
+                 PYTHONPATH=. python3 -m pytest --junitxml results.xml simple_webserver/tests
+                 '''
+
             }
         }
         stage('Deploy') {
