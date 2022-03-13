@@ -18,9 +18,10 @@ pipeline {
             }
         }
         stage('Test') {
+            when {}
             steps {
                 echo 'Testing...'
-                python3 -m pytest --junitxml results.xml simple_webserver/tests
+                python3 -m pytest simple_webserver/tests
             }
         }
         stage('Deploy') {
